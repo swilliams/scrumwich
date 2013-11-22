@@ -18,6 +18,8 @@ $error-text: #f2f2f2;
 }
 
 .row-scrum {
+  border-bottom: 1px solid $darker;
+
   &:hover {
     background-color: $bg;
   }
@@ -31,4 +33,10 @@ $error-text: #f2f2f2;
 .row-blocked .block {
   background-color: $error;
   color: $error-text;
+}
+
+.date-header a {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
 }
