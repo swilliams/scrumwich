@@ -1,0 +1,16 @@
+<div class="row row-scrum <%= entry.block.nil? ? "" : "row-blocked" %>">
+  <div class="small-2 large-2 columns">
+    <img src="http://placehold.it/50x50" alt="<%= entry.person.name %>" /><br/ >
+    <a href="mailto:<%= entry.person.email %>"><%= entry.person.name %></a>
+  </div>
+  <div class="small-4 large-4 columns">
+    <%= entry.yesterday %>
+  </div>
+  <div class="small-3 large-3 columns">
+    <%= entry.today %>
+  </div>
+  <div class="small-3 large-3 columns block">
+    <%= entry.block %>
+  </div>
+</div>
+
