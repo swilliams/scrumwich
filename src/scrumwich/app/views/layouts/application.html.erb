@@ -12,6 +12,25 @@
   </head>
 
   <body>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Today", root_url %></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="active">
+          <%= link_to "Add Today's Entry", new_entry_path %>
+        </li>
+      </ul>
+
+      <%#<ul class="left">%>
+
+      <%#</ul>%>
+    </section>
+  </nav>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
