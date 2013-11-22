@@ -42,3 +42,4 @@ end
 # gem 'capistrano', group: :development
 
 gem 'foundation-rails', '~> 5.0.0'
+gem 'gravtastic', '~> 3.2'
