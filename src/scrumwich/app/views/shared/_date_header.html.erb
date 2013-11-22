@@ -1,0 +1,8 @@
+<div class="date-header">
+  <% tomorrow = d+1 %>
+  <h1><%= link_to "«", entry_path("#{(d-1).strftime("%m-%d-%Y")}") %><%= d.strftime("%B %d, %Y") %>
+  <% if tomorrow < DateTime.now %>
+    <%= link_to "»", entry_path("#{tomorrow.strftime("%m-%d-%Y")}") %>
+  <% end %>
+  </h1>
+</div>
