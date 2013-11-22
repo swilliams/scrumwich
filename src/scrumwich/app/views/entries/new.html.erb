@@ -1,16 +1,38 @@
-<h1>Entry For Today</h1>
+<% content_for :title do %>Entry For Today<% end %>
+
+<div class="row">
+  <h1 class="columns">Entry For Today</h1>
+</div>
+
+<% 
+    @person_errors ||= [] 
+    @entry_errors ||= []
+%>
+
+<% if @person_errors.any? or @entry_errors.any? %>
+  <div class="row row-error">
+    <h2>Errors</h2>
+    <ul>
+      <% 
+        all_errors = @entry_errors.concat @person_errors
+        all_errors.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for @entry do |f| %>
   <div class="row">
     <div class="large-6 columns">
       <%= label_tag :person_name, "Your Name" %>
-      <%= text_field_tag :person_name %>
+      <%= text_field_tag :person_name, @person_name %>
     </div>
   </div>
   <div class="row">
     <div class="large-6 columns">
       <%= label_tag :person_email, "Your Email" %>
-      <%= text_field_tag :person_email %>
+      <%= text_field_tag :person_email, @person_email %>
     </div>
   </div>
   <div class="row">

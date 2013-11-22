@@ -43,3 +43,8 @@ end
 
 gem 'foundation-rails', '~> 5.0.0'
 gem 'gravtastic', '~> 3.2'
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger'
+end
