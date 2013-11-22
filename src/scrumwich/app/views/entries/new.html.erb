@@ -2,27 +2,40 @@
 
 <%= form_for @entry do |f| %>
   <div class="row">
-    <div class="large-6">
+    <div class="large-6 columns">
       <%= label_tag :person_name, "Your Name" %>
       <%= text_field_tag :person_name %>
     </div>
-    <div class="large-6">
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
       <%= label_tag :person_email, "Your Email" %>
       <%= text_field_tag :person_email %>
     </div>
-    <div class="large-6">
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
       <%= f.label :yesterday, "What Did You Work On Yesterday?" %>
       <%= f.text_area :yesterday %>
     </div>
-    <div class="large-6">
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
       <%= f.label :today, "What Will You Work On Today?" %>
       <%= f.text_area :today %>
     </div>
-    <div class="large-6">
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
       <%= f.label :block, "Any Blocks?" %>
       <%= f.text_area :block %>
     </div>
-    <div class="large-12">
+    <div class="large-6 columns">
+      <span class="info">Leave this blank if there were none.</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
       <%= f.submit "Add", class: "button" %>
     </div>
   </div>

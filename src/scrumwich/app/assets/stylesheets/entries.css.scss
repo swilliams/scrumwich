@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $bg: #ddd;
+$light: #888;
 $darker: darken($bg, 10%);
 $error: #a2001b;
 $error-text: #f2f2f2;
@@ -39,4 +40,12 @@ $error-text: #f2f2f2;
   display: inline-block;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.info {
+  display: block;
+  margin-top: 20px;
+  color: $light;
+  font-size: 12px;
+  font-style: italic;
 }
