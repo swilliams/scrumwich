@@ -20,6 +20,6 @@ test:
 
 production:
   adapter: postgresql
-  database: 
+  database: scrumwich_production
   pool: 5
   timeout: 5000
