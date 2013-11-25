@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with name: "revspring", password: "obsidian"
+  #http_basic_authenticate_with name: "revspring", password: "obsidian"
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
