@@ -4,6 +4,6 @@ class Person < ActiveRecord::Base
 
   has_many :entries
 
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :name, presence: true, length: { maximum: 560 }
+  validates :email, presence: true, length: { maximum: 560 }
 end

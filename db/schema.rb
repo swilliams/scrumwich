@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122181212) do
+ActiveRecord::Schema.define(version: 20131205201032) do
 
   create_table "entries", force: true do |t|
-    t.string   "yesterday",  null: false
-    t.string   "today",      null: false
-    t.string   "block"
-    t.integer  "person_id",  null: false
+    t.string   "yesterday",  limit: 560, null: false
+    t.string   "today",      limit: 560, null: false
+    t.string   "block",      limit: 560
+    t.integer  "person_id",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "email",      null: false
+    t.string   "name",       limit: 560, null: false
+    t.string   "email",      limit: 560, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
