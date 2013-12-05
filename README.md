@@ -6,7 +6,7 @@ A dirt simple way of reporting your statuses each day. Go to the page, add your 
 ## Contributing
 1. Fork.
 2. Make a feature branch.
-3. Do your thing.
+3. Do your thing. (Include tests. Make sure all tests pass.)
 4. Push it back to Github.
 5. Create a Pull Request.
 
