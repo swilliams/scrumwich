@@ -33,6 +33,7 @@
     <div class="large-6 columns">
       <%= label_tag :person_email, "Your Email" %>
       <%= text_field_tag :person_email, @person_email %>
+      <span class="info">Your email address will be used to generate your avatar. <a href="http://gravatar.com">Set it up over here</a>.</span>
     </div>
   </div>
   <div class="row">
@@ -51,8 +52,6 @@
     <div class="large-6 columns">
       <%= f.label :block, "Any Blocks?" %>
       <%= f.text_area :block %>
-    </div>
-    <div class="large-6 columns">
       <span class="info">Leave this blank if there were none.</span>
     </div>
   </div>
