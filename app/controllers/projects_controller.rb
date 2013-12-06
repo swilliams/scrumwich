@@ -4,6 +4,9 @@ class ProjectsController < ApplicationController
       render template: "projects/no_user"
       return
     end
+  end
 
+  def show
+    @day = DateTime.now
   end
 end

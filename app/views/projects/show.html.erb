@@ -1,0 +1,3 @@
+<% content_for :title do %><%= @day.strftime("%m-%d-%Y") %><% end %>
+
+<%= render partial: "shared/date_header", locals: {d: @day} %>

@@ -6,7 +6,7 @@ describe "Projects" do
 
       before do
         Project.delete_all
-        visit "/"
+        visit "/projects"
       end
 
       it "renders" do
@@ -47,6 +47,20 @@ describe "Projects" do
         expect(page).to have_selector 'h2', text: "Available Projects"
       end
 
+    end
+  end
+
+  describe "GET /projects/[:id]" do
+    before do
+      visit "/projects/1"
+    end
+
+    it "renders" do
+      expect(page.status_code).to be(200)
+    end
+
+    it "displays today's date" do
+      expect(page).to have_selector 'div.date-header'
     end
   end
 end
