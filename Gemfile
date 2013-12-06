@@ -47,7 +47,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-debugger'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'capybara', '~> 2.1.0'
 end
 
 group :production do

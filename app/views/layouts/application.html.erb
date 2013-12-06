@@ -24,11 +24,17 @@
         <li class="has-dropdown">
           <a href="">Projects</a>
           <ul class="dropdown">
-            
+            <% if current_user %>
+              <% current_user.projects.each do |proj| %>
+                <li><%= proj.name %></li>
+              <% end %>
+            <% end %>
           </ul>
         </li>
         <li class="active">
-          <%= link_to "Add Today's Entry", new_entry_path %>
+          <% if current_user %>
+            <%= link_to "Add Today's Entry", new_entry_path %>
+          <% end %>
         </li>
       </ul>
 
