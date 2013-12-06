@@ -30,11 +30,11 @@ describe "Projects" do
 
       it "does not display projects" do
         expect(page).not_to have_selector 'h2', text: "Available Projects"
-        expect(page).not_to have_selector 'input', text: "Create a Project"
+        expect(page).not_to have_selector 'a.button', text: "Create a Project"
       end
     end
 
-    context "Has current_user" do
+    context "When a current_user is available" do
       let (:email) { "test@example.com" }
       let (:person) { Person.create!(name: "Test Guy", email: email) }
 

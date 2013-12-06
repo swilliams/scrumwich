@@ -10,7 +10,7 @@ Scrumwich::Application.routes.draw do
     end
   end
 
-  resources :projects, only: [:index]
+  resources :projects, only: [:index, :show, :new]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

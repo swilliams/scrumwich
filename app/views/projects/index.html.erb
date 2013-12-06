@@ -1,5 +1,9 @@
 <div class="row">
   <div class="large-8 offset-2">
     <h2>Available Projects</h2>
+    <% @user.projects.each do |proj| %>
+      <div class="row row-project"><%= link_to proj.name, proj %></div>
+    <% end %>
+    <%= link_to "Create a Project", new_project_path, class: "button" %>
   </div>
 </div>

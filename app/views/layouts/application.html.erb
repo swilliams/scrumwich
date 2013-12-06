@@ -24,9 +24,9 @@
         <li class="has-dropdown">
           <a href="">Projects</a>
           <ul class="dropdown">
-            <% if current_user %>
-              <% current_user.projects.each do |proj| %>
-                <li><%= proj.name %></li>
+            <% if @user %>
+              <% @user.projects.each do |proj| %>
+                <li><%= link_to proj.name, proj %></li>
               <% end %>
             <% end %>
           </ul>
