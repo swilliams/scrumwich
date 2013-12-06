@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   belongs_to :person
+  belongs_to :project
 
   validates :yesterday, presence: true, length: { maximum: 560 }
   validates :today, presence: true, length: { maximum: 560 }

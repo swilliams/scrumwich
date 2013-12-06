@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205201032) do
+ActiveRecord::Schema.define(version: 20131206175902) do
 
   create_table "entries", force: true do |t|
     t.string   "yesterday",  limit: 560, null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131205201032) do
     t.integer  "person_id",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
 
   create_table "people", force: true do |t|
@@ -28,5 +29,21 @@ ActiveRecord::Schema.define(version: 20131205201032) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "people_projects", id: false, force: true do |t|
+    t.integer "person_id",  null: false
+    t.integer "project_id", null: false
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "name",       limit: 40
+    t.integer  "owner_id",              null: false
+    t.integer  "entries_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["entries_id"], name: "index_projects_on_entries_id"
+  add_index "projects", ["owner_id"], name: "index_projects_on_owner_id"
 
 end
