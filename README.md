@@ -1,6 +1,10 @@
 scrumwich
 =========
 
+<a href="#" id="status-image-popup" name="status-images" class="open-popup" data-ember-action="29">
+    <img src="https://travis-ci.org/swilliams/scrumwich.png" data-bindattr-30="30" title="Build Status Images">
+</a>
+
 A dirt simple way of reporting your statuses each day. Go to the page, add your status. Browse old statuses.
 
 ## Contributing
