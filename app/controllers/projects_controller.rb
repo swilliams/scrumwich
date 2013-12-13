@@ -7,6 +7,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @day = DateTime.now
+    # TODO: move entries stuff to here
   end
 end

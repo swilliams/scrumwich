@@ -3,14 +3,15 @@ Scrumwich::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'entries#today'
-  resources :entries do
-    collection do
-      get :today
+  root 'projects#index'
+
+  resources :projects, only: [:index, :show, :new] do
+    resources :entries, controller: 'projects/entries' do
+      collection do
+        get :today
+      end
     end
   end
-
-  resources :projects, only: [:index, :show, :new]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

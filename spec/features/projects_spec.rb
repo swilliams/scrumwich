@@ -59,8 +59,5 @@ describe "Projects" do
       expect(page.status_code).to be(200)
     end
 
-    it "displays today's date" do
-      expect(page).to have_selector 'div.date-header'
-    end
   end
 end

@@ -1,4 +1,4 @@
-class EntriesController < ApplicationController
+class Projects::EntriesController < ApplicationController
   def today
     @entries = Entry.for_today
   end
@@ -25,7 +25,7 @@ class EntriesController < ApplicationController
     cookies[:person_email] = p.email
     @entry = p.entries.build entry_params
     if @entry.save
-      redirect_to today_entries_path
+      redirect_to today_project_entries_path
     else
       @entry_errors = @entry.errors.full_messages
       render :new
@@ -40,5 +40,9 @@ class EntriesController < ApplicationController
   private
     def entry_params
       params.require(:entry).permit(:yesterday, :today, :block)
+    end
+
+    def get_project
+      @project = Project.find_by(id: params[:project_id])
     end
 end
