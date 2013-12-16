@@ -8,6 +8,14 @@ module ApplicationHelper
     @current_user
   end
 
+  def long_formatted_date date
+    date.strftime "%B %d, %Y"
+  end
+
+  def short_formatted_date date
+    date.strftime "%m-%d-%Y"
+  end
+
   private
   def retrieve_token
     cookies[:person_email]

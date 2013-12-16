@@ -32,4 +32,20 @@ describe ApplicationHelper do
       end
     end
   end
+
+  describe "#long_formatted_date" do
+    it "formats the date properly" do
+      test_date = DateTime.new 2001,1,1
+      result = dummy.long_formatted_date test_date
+      expect(result).to eq "January 01, 2001"
+    end
+  end
+
+  describe "#short_formatted_date" do
+    it "formats the date properly" do
+      test_date = DateTime.new 2001,1,1
+      result = dummy.short_formatted_date test_date
+      expect(result).to eq "01-01-2001"
+    end
+  end
 end
