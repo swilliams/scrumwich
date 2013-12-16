@@ -1,4 +1,6 @@
 class Projects::EntriesController < ApplicationController
+  before_action :get_project
+
   def today
     @entries = Entry.for_today
   end
