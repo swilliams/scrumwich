@@ -10,7 +10,6 @@ class Entry < ActiveRecord::Base
     Entry.for_day DateTime.now
   end
 
-  def self.for_day day
-    Entry.where('created_at BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day)
-  end
+  scope :for_day, -> (day) { where('created_at BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day) }
+
 end
