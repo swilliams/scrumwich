@@ -1,2 +1,23 @@
 <% content_for :title do %><%= "Project!" %><% end %>
 
+<h2><%= @project.name %></h2>
+
+<% @project.last_10_days.each do |entry| %>
+  <div class="row day">
+  <% if entry.class == DateTime %>
+    <div class="large-8 small-8 columns">
+      <%= link_to (long_formatted_date entry), project_entry_path(project_id: @project.id, id: short_formatted_date(entry)) %>
+    </div>
+    <div class="large-4 small-4 columns">
+      0
+    </div>
+  <% else %>
+    <div class="large-8 small-8 columns">
+      <%= formatted_date entry.created_at %>
+    </div>
+    <div class="large-4 small-4 columns">
+      <%= entry.count %>
+    </div>
+  <% end %>
+  </div>
+<% end %>

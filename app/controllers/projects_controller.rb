@@ -7,6 +7,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # TODO: move entries stuff to here
+    @project = Project.find_by id: params[:id]
   end
 end

@@ -51,12 +51,23 @@ describe "Projects" do
   end
 
   describe "GET /projects/[:id]" do
+    let (:owner) { Person.create!(name: "Test Owner", email: "test@example.com") }
+    let (:project) { Project.create!(name: "Test Project", owner: owner) }
+
     before do
-      visit "/projects/1"
+      visit "/projects/#{project.id}"
     end
 
     it "renders" do
       expect(page.status_code).to be(200)
+    end
+
+    it "displays the project name" do
+      expect(page).to have_selector 'h2', text: project.name
+    end
+
+    it "displays the last 10 days of the project" do
+      expect(page.all("div.day").count).to eq 10
     end
 
   end
