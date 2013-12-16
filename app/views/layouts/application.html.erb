@@ -33,15 +33,11 @@
           </ul>
         </li>
         <li class="active">
-          <% if current_user %>
-            <%#<%= link_to "Add Today's Entry", new_project_entry_path %>%>
+          <% if @project %>
+            <%= link_to "Add Today's Entry", new_project_entry_path(project_id: @project.id) %>
           <% end %>
         </li>
       </ul>
-
-      <%#<ul class="left">%>
-
-      <%#</ul>%>
     </section>
   </nav>
 

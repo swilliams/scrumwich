@@ -22,20 +22,7 @@
   </div>
 <% end %>
 
-<%= form_for @entry do |f| %>
-  <div class="row">
-    <div class="large-6 columns">
-      <%= label_tag :person_name, "Your Name" %>
-      <%= text_field_tag :person_name, @person_name %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 columns">
-      <%= label_tag :person_email, "Your Email" %>
-      <%= text_field_tag :person_email, @person_email %>
-      <span class="info">Your email address will be used to generate your avatar. <a href="http://gravatar.com">Set it up over here</a>.</span>
-    </div>
-  </div>
+<%= form_for @entry, url: project_entries_path(project_id: @project.id) do |f| %>
   <div class="row">
     <div class="large-6 columns">
       <%= f.label :yesterday, "What Did You Work On Yesterday?" %>

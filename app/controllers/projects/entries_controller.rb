@@ -12,20 +12,9 @@ class Projects::EntriesController < ApplicationController
   end
 
   def create
-    p = Person.find_by(name: params[:person_name], email: params[:person_email])
-    if p.nil?
-      new_person = Person.new(name: params[:person_name], email: params[:person_email])
-      if !new_person.save
-        @person_errors = new_person.errors.full_messages
-        @entry = Entry.new
-        render :new
-        return
-      end
-      p = new_person
-    end
-    cookies[:person_name] = p.name
-    cookies[:person_email] = p.email
-    @entry = p.entries.build entry_params
+    cookies[:person_email] = current_user.email
+    @entry = @project.entries.build entry_params
+    @entry.person = current_user
     if @entry.save
       redirect_to today_project_entries_path
     else
