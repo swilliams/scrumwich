@@ -1,0 +1,28 @@
+.grid {
+  .row {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+
+    &:hover {
+      background: #eee;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.people {
+  list-style-type: none;
+  margin: 0;
+
+  .person {
+    padding: 4px 0 4px 10px;
+
+    &:hover {
+      background: #efefef;
+    }
+  }
+}
