@@ -54,20 +54,38 @@ describe "Projects" do
     let (:owner) { Person.create!(name: "Test Owner", email: "test@example.com") }
     let (:project) { Project.create!(name: "Test Project", owner: owner) }
 
-    before do
-      visit "/projects/#{project.id}"
+    context "project info" do
+      before do
+        visit "/projects/#{project.id}"
+      end
+
+      it "renders" do
+        expect(page.status_code).to eq 200
+      end
+
+      it "displays the project name" do
+        expect(page).to have_selector 'h2', text: project.name
+      end
+
+      it "displays the last 10 days of the project" do
+        expect(page.all("div.row-day").count).to eq 10
+      end
     end
 
-    it "renders" do
-      expect(page.status_code).to be(200)
-    end
+    context "people in the project" do
+      before do
+        dummy_person1 = Person.create! name: "person 1", email: "person1@example.com"
+        dummy_person2 = Person.create! name: "person 2", email: "person2@example.com"
+        project.people << dummy_person1
+        project.people << dummy_person2
+        
+        visit "/projects/#{project.id}"
+      end
 
-    it "displays the project name" do
-      expect(page).to have_selector 'h2', text: project.name
-    end
+      it "displays the list of people on the project" do
+        expect(page.all(".person").count).to eq 3
+      end
 
-    it "displays the last 10 days of the project" do
-      expect(page.all("div.day").count).to eq 10
     end
   end
 

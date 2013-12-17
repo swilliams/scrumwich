@@ -1,23 +1,39 @@
 <% content_for :title do %><%= "Project!" %><% end %>
 
-<h2><%= @project.name %></h2>
+<div class="columns">
+  <h2><%= @project.name %></h2>
+  <hr />
+</div>
 
-<% @project.last_10_days.each do |entry| %>
-  <div class="row day">
-  <% if entry.class == DateTime %>
-    <div class="large-8 small-8 columns">
-      <%= link_to (long_formatted_date entry), project_entry_path(project_id: @project.id, id: short_formatted_date(entry)) %>
-    </div>
-    <div class="large-4 small-4 columns">
-      0
-    </div>
-  <% else %>
-    <div class="large-8 small-8 columns">
-      <%= formatted_date entry.created_at %>
-    </div>
-    <div class="large-4 small-4 columns">
-      <%= entry.count %>
+<section class="large-8 small-12 columns grid grid-striped">
+  <h4>The Last 10 Days</h4>
+  <% @project.last_10_days.each do |entry| %>
+    <div class="row row-day">
+    <% if entry.class == DateTime %>
+      <div class="large-8 small-8 columns">
+        <%= link_to (long_formatted_date entry), project_entry_path(project_id: @project.id, id: short_formatted_date(entry)) %>
+      </div>
+      <div class="large-4 small-4 columns">
+        0
+      </div>
+    <% else %>
+      <div class="large-8 small-8 columns">
+        <%= link_to long_formatted_date(entry.first.created_at), project_entry_path(project_id: @project.id, id: short_formatted_date(entry.first.created_at)) %>
+      </div>
+      <div class="large-4 small-4 columns">
+        <%= entry.count %>
+      </div>
+    <% end %>
     </div>
   <% end %>
-  </div>
-<% end %>
+</section>
+<aside class="large-4 small-12 columns">
+  <h3>People in this Project</h3>
+  <ul class="people">
+    <% @project.people.each do |person| %>
+      <li class="person">
+        <%= image_tag person.gravatar_url(rating: 'PG', secure: true, size: 24) %>
+        <%= link_to person.name, "mailto:#{person.email}" %></li>
+    <% end %>
+  </ul>
+</aside>
