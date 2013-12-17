@@ -69,6 +69,44 @@ describe "Projects" do
     it "displays the last 10 days of the project" do
       expect(page.all("div.day").count).to eq 10
     end
+  end
 
+  describe "GET /projects/new" do
+    let (:owner) { Person.create!(name: "Test Owner", email: "test@example.com") }
+
+    context "with a valid user" do
+      before do
+        ApplicationController.any_instance.stub(:current_user).and_return owner
+        visit "/projects/new"
+      end
+
+      it "renders the form" do
+        expect(page).to have_selector 'h2', text: 'New Project' 
+      end
+
+      context "the form is submitted" do
+        it "renders an error if the name is blank" do
+          page.fill_in 'Name', with: ''
+          page.click_on 'Add'
+          expect(current_url).to eq projects_url
+          expect(page).to have_selector('h2', text: 'Errors')
+        end
+
+        it "redirects to the project itself when valid" do
+          page.fill_in 'Name', with: 'New Test Project'
+          page.click_on 'Add'
+          new_project = Project.last
+          expect(current_url).to eq project_url(id: new_project.id)
+          expect(page).to have_selector 'h2', text: 'New Test Project'
+        end
+      end
+    end
+
+    context "without a valid user" do
+      it "renders the no user template if no user is found" do
+        visit "/projects/new"
+        expect(page).to have_selector 'h2', text: 'You Need an Account'
+      end
+    end
   end
 end

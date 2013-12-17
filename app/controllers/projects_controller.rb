@@ -9,4 +9,31 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find_by id: params[:id]
   end
+
+  def new
+    unless current_user
+      render template: "projects/no_user"
+      return
+    end
+    @project = Project.new
+  end
+
+  def create
+    unless current_user
+      render template: "projects/no_user"
+      return
+    end
+    @project = current_user.projects.build safe_params
+    @project.owner = current_user
+    if @project.save
+      redirect_to @project
+    else
+      render :new
+    end
+  end
+
+  private
+  def safe_params
+    params.require(:project).permit(:name)
+  end
 end

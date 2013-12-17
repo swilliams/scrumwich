@@ -1,0 +1,30 @@
+<% content_for :title do %>New Project<% end %>
+
+<h2>New Project</h2>
+<%= form_for @project do |f| %>
+  <% if @project.errors.any? %>
+    <div class="row row-error">
+      <h2>Errors</h2>
+      <ul>
+        <% 
+          @project.errors.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.submit "Add", class: "button" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

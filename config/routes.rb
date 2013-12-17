@@ -5,7 +5,7 @@ Scrumwich::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'projects#index'
 
-  resources :projects, only: [:index, :show, :new] do
+  resources :projects, only: [:index, :show, :new, :create] do
     resources :entries, controller: 'projects/entries' do
       collection do
         get :today

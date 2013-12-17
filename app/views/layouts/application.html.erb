@@ -33,7 +33,7 @@
           </ul>
         </li>
         <li class="active">
-          <% if @project %>
+          <% if @project and @project.id %>
             <%= link_to "Add Today's Entry", new_project_entry_path(project_id: @project.id) %>
           <% end %>
         </li>
