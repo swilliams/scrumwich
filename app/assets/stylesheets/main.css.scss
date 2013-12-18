@@ -21,8 +21,17 @@
   .person {
     padding: 4px 0 4px 10px;
 
+    .remove_person {
+      margin-right: 10px;
+      visibility: hidden;
+    }
+
     &:hover {
       background: #efefef;
+
+      .remove_person {
+        visibility: visible;
+      }
     }
   }
 }
@@ -41,3 +50,5 @@
   padding-bottom: 0;
   padding-top: 0.5rem;
 }
+
+
