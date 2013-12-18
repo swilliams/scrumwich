@@ -66,12 +66,6 @@ describe Project do
       person_count = project.people.count
       expect(person_count).to eq 2
     end
-
-    it "destroys the invitation after it sends" do
-      old_person = Person.create! name: "Old User", email: "old@example.com"
-      project.invite_person old_person.email
-      expect(old_person.invitations.count).to eq 0
-    end
   end
 
   describe "#create_invitation" do

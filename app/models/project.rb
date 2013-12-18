@@ -34,7 +34,6 @@ class Project < ActiveRecord::Base
       self.people << person
       invitation = create_invitation person
       ProjectMailer.invite_member invitation
-      invitation.destroy
     end
   end
 

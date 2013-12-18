@@ -33,7 +33,8 @@
     <% @project.people.each do |person| %>
       <li class="person">
         <%= image_tag person.gravatar_url(rating: 'PG', secure: true, size: 24) %>
-        <%= link_to person.name, "mailto:#{person.email}" %></li>
+        <%= link_to person.name, "mailto:#{person.email}" %>
+      </li>
     <% end %>
     <li><a href="#" data-dropdown="invite_people">Invite People</a>
       <div id="invite_people" class="f-dropdown content" data-dropdown-content>
