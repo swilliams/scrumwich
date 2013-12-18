@@ -28,7 +28,8 @@
               <% @user.projects.each do |proj| %>
                 <li><%= link_to proj.name, proj %></li>
               <% end %>
-              <li class="new_project"><%= link_to "New", new_project_path %></li>
+              <li class="divider"></li>
+              <li class="new_project"><%= link_to "New Project", new_project_path %></li>
             <% end %>
           </ul>
         </li>

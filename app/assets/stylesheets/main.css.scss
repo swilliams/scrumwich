@@ -26,3 +26,18 @@
     }
   }
 }
+
+.edit_project {
+  label {
+    font-size: 0.7rem;
+  }
+
+  #invitations {
+    height: 100px;
+  }
+}
+
+#invite_people {
+  padding-bottom: 0;
+  padding-top: 0.5rem;
+}

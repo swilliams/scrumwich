@@ -35,5 +35,15 @@
         <%= image_tag person.gravatar_url(rating: 'PG', secure: true, size: 24) %>
         <%= link_to person.name, "mailto:#{person.email}" %></li>
     <% end %>
+    <li><a href="#" data-dropdown="invite_people">Invite People</a>
+      <div id="invite_people" class="f-dropdown content" data-dropdown-content>
+        <%= form_for @project, url: invite_project_path do |f| %>
+          <label for="invitations">Emails of people to invite (one per line)</label>
+          <%= text_area_tag :invitations %>
+          <input type="submit" value="Invite" class="tiny button" />
+        <% end %>
+      </div>
+    
+    </li>
   </ul>
 </aside>
