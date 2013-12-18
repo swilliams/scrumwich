@@ -10,6 +10,8 @@ Scrumwich::Application.routes.draw do
       post :invite
     end
 
+    resources :people, controller: 'projects/people', only: [:create, :destroy]
+
     resources :entries, controller: 'projects/entries' do
       collection do
         get :today
