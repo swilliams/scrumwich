@@ -19,6 +19,12 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def invite_people(emails)
+    emails.each do |email|
+      invite_person email
+    end
+  end
+
   def invite_person(email)
     person = Person.find_by email: email
     if person.nil?

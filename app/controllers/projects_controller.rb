@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  include ProjectsHelper
+
   def index
     unless current_user
       render template: "projects/no_user"
@@ -29,6 +31,17 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       render :new
+    end
+  end
+
+  def invite
+    unless current_user
+      render template: "projects/no_user"
+      return
+    end
+    @project = Project.find_by id: params[:id]
+    if @project
+      @project.invite_people(emails_from_lines params[:invitations])
     end
   end
 
