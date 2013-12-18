@@ -37,7 +37,7 @@
     <% end %>
     <li><a href="#" data-dropdown="invite_people">Invite People</a>
       <div id="invite_people" class="f-dropdown content" data-dropdown-content>
-        <%= form_for @project, url: invite_project_path do |f| %>
+        <%= form_tag invite_project_path(id: @project.id) do %>
           <label for="invitations">Emails of people to invite (one per line)</label>
           <%= text_area_tag :invitations %>
           <input type="submit" value="Invite" class="tiny button" />

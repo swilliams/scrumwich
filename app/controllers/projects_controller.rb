@@ -43,6 +43,10 @@ class ProjectsController < ApplicationController
     if @project
       @project.invite_people(emails_from_lines params[:invitations])
     end
+    respond_to do |format|
+      format.html { redirect_to @project }
+      format.json { render nothing: true }
+    end
   end
 
   private

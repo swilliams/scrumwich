@@ -7,7 +7,7 @@
     <h1>You Are Invited to Scrumwich</h1>
     <h2><%= @project.name %></h2>
     <p>
-    The URL for your scrumwich is <%= link_to project_url(code: @project.invitation), project_url(code: @project.invitation) %>
+    The URL for your scrumwich is <%= link_to project_url(id: @project.id, code: @invitation_code), project_url(id: @project.id,code: @invitation_code) %>
     </p>
   </body>
 </html>
