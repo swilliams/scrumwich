@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206175902) do
+ActiveRecord::Schema.define(version: 20131218154238) do
 
   create_table "entries", force: true do |t|
     t.string   "yesterday",  limit: 560, null: false
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20131206175902) do
     t.datetime "updated_at"
     t.integer  "project_id"
   end
+
+  create_table "invitations", force: true do |t|
+    t.string   "code"
+    t.integer  "project_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitations", ["person_id"], name: "index_invitations_on_person_id"
+  add_index "invitations", ["project_id"], name: "index_invitations_on_project_id"
 
   create_table "people", force: true do |t|
     t.string   "name",       limit: 560, null: false
