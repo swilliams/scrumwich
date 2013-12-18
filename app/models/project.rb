@@ -18,4 +18,24 @@ class Project < ActiveRecord::Base
       results.empty? ? date : results
     end
   end
+
+  def invite_person(email)
+    person = Person.find_by email: email
+    if person.nil?
+      person = Person.create! name: email, email: email
+    end
+    unless self.people.include? person
+      self.people << person
+      invitation = create_invitation person
+      ProjectMailer.invite_member invitation
+      invitation.destroy
+    end
+  end
+
+  def create_invitation(person)
+    inv = Invitation.new project: self, person: person
+    inv.create_code
+    inv.save
+    inv
+  end
 end
