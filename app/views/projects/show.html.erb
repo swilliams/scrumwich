@@ -34,7 +34,7 @@
       <li class="person">
         <%= image_tag person.gravatar_url(rating: 'PG', secure: true, size: 24) %>
         <%= link_to person.name, "mailto:#{person.email}" %>
-        <%= link_to project_person_path(id: person.id, project_id: @project.id), method: :delete, confirm: "Are you sure?", class: "remove_person right" do %>
+        <%= link_to project_person_path(id: person.id, project_id: @project.id), method: :delete, data: { confirm: "Are you sure?" }, class: "remove_person right" do %>
           &times;
         <% end %>
       </li>
