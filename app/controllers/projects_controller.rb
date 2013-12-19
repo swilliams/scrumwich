@@ -34,6 +34,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  #def join
+    #invitation_code = params[:id]
+  #end
+
   private
   def safe_params
     params.require(:project).permit(:name)

@@ -14,7 +14,9 @@ Scrumwich::Application.routes.draw do
       end
     end
 
-    resource :join, controller: 'projects/join', only: [:show]
+    member do
+      get :join
+    end
   end
 
   # Example of regular route:
