@@ -6,10 +6,6 @@ Scrumwich::Application.routes.draw do
   root 'projects#index'
 
   resources :projects, only: [:index, :show, :new, :create] do
-    member do
-      post :invite
-    end
-
     resources :people, controller: 'projects/people', only: [:create, :destroy]
 
     resources :entries, controller: 'projects/entries' do

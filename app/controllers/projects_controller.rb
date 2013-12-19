@@ -34,21 +34,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def invite
-    unless current_user
-      render template: "projects/no_user"
-      return
-    end
-    @project = Project.find_by id: params[:id]
-    if @project
-      @project.invite_people(emails_from_lines params[:invitations])
-    end
-    respond_to do |format|
-      format.html { redirect_to @project }
-      format.json { render nothing: true }
-    end
-  end
-
   private
   def safe_params
     params.require(:project).permit(:name)

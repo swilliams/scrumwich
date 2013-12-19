@@ -13,4 +13,13 @@ describe Projects::PeopleController do
       expect(result.person_ids).to eq [owner.id]
     end
   end
+
+  describe "#create" do
+    it "adds a person to a project" do
+      create_params = { project_id: project.id, invitations: "derp@example.com" }
+      post :create, create_params
+      result = Project.find project.id
+      expect(result.people.count).to eq 2
+    end
+  end
 end
