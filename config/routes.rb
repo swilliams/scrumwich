@@ -13,6 +13,8 @@ Scrumwich::Application.routes.draw do
         get :today
       end
     end
+
+    resource :join, controller: 'projects/join', only: [:show]
   end
 
   # Example of regular route:
