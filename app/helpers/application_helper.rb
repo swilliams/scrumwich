@@ -16,9 +16,15 @@ module ApplicationHelper
     date.strftime "%m-%d-%Y"
   end
 
+  protected
+  def store_token(token)
+    cookies.permanent[:person_email] = token
+  end
+
   private
   def retrieve_token
     cookies[:person_email]
   end
+
 end
 
